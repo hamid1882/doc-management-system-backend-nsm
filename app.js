@@ -1,8 +1,16 @@
 const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
 
-const dotenv = require('dotenv');
-dotenv.config();
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Add this near the top with your other requires
+const documentRoutes = require('./routes/documentRoutes');
+const fileRoutes = require("./routes/fileRoutes")
 
 const db = require("./config/db");
 
@@ -24,10 +32,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-
-// Add this near the top with your other requires
-const documentRoutes = require('./routes/documentRoutes');
-const fileRoutes = require("./routes/fileRoutes")
 
 
 // Use file routes
