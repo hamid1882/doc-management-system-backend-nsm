@@ -5,8 +5,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Import routes
-const documentRoutes = require('../../routes/documentRoutes');
-const fileRoutes = require('../../routes/fileRoutes');
+const documentRoutes = require('../routes/documentRoutes');
+const fileRoutes = require('../routes/fileRoutes');
 
 // Create Express app
 const app = express();
@@ -14,9 +14,6 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// Debug environment variables
-console.log('MongoDB URI exists:', !!process.env.MONGO_URL);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL)
