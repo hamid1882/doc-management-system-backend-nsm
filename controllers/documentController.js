@@ -5,12 +5,13 @@ const createDocument = async (req, res) => {
   try {
     const { name, description, type } = req.body;
 
+    // Fix the comment to match the actual behavior
     const newDocument = new Document({
       name,
       description,
       type: type || 'folder',
       children: [],
-      isRoot: true  // This is not a root document
+      isRoot: true  // This is a root document
     });
 
     const savedDocument = await newDocument.save();
