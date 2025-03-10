@@ -1,0 +1,49 @@
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# Build outputs
+/dist
+/build
+/out
+
+# Coverage directory used by tools like istanbul
+/coverage
+
+# Temporary files
+.DS_Store
+.tmp
+.temp
+*.swp
+*.swo
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Netlify
+/.netlify
+/netlify/functions-build
+
+# Uploads directory (if you're storing files locally)
+/uploads
+
+# Optional: local MongoDB data
+/data/db
