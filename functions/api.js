@@ -12,7 +12,16 @@ const fileRoutes = require('../routes/fileRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+// Enhanced CORS configuration
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-api-key']
+}));
+
+// Add OPTIONS handling for preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 // MongoDB connection options to speed up connection
