@@ -17,14 +17,15 @@ const { apiKeyAuth } = require('../middleware/authMiddleware');
 router.use(apiKeyAuth);
 
 // Document routes
+router.get('/filter', filterDocuments);
+router.get('/:id', getDocumentById);
+
 router.post('/', createDocument);
 router.post('/child', createChildDocument);
 router.get('/', getAllDocuments);
-router.get('/:id', getDocumentById);
-router.delete('/', deleteAllDocuments);
+router.delete('/all', deleteAllDocuments);
 router.put('/:id', updateDocument);
 router.delete('/:id', deleteDocument);
-router.get('/filter', filterDocuments);
 router.post('/upload', uploadFileDocument);
 
 module.exports = router;
