@@ -147,6 +147,35 @@ const getAllDocuments = async (req, res) => {
   }
 };
 
+// Get a document by ID
+const getDocumentById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Find the document by ID
+    const document = await Document.findById(id).lean();
+
+    if (!document) {
+      return res.status(404).json({
+        sucess: false,
+        message: 'Document not found'
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      data: document
+    })
+  } catch (error) {
+    console.error('Error fetching the document: ', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch document',
+      error: error.message
+    })
+  }
+}
+
 // Delete all documents
 const deleteAllDocuments = async (req, res) => {
   try {
@@ -460,6 +489,7 @@ module.exports = {
   createDocument,
   createChildDocument,
   getAllDocuments,
+  getDocumentById,
   deleteAllDocuments,
   updateDocument,
   deleteDocument,

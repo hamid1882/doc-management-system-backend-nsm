@@ -8,7 +8,8 @@ const {
   updateDocument,
   deleteDocument,
   filterDocuments,
-  uploadFileDocument
+  uploadFileDocument,
+  getDocumentById
 } = require('../controllers/documentController');
 const { apiKeyAuth } = require('../middleware/authMiddleware');
 
@@ -19,6 +20,7 @@ router.use(apiKeyAuth);
 router.post('/', createDocument);
 router.post('/child', createChildDocument);
 router.get('/', getAllDocuments);
+router.get('/:id', getDocumentById);
 router.delete('/', deleteAllDocuments);
 router.put('/:id', updateDocument);
 router.delete('/:id', deleteDocument);
