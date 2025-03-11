@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'document-management',
-    allowed_formats: ['jpg', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt']
+    allowed_formats: ['txt', 'jpg', 'jpeg', 'gif', 'png', 'webp', 'svg']
   }
 });
 
